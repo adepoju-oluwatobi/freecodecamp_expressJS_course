@@ -14,7 +14,7 @@ app.use("/public", express.static(path));
 app.get('/json', (req, res) => {
    let message = "Hello json"
     if (process.env.MESSAGE_STYLE === uppercase) {
-      message = "Hello json".toUpperCase();
+      message = message.toUpperCase();
     }
     res.json({
         message: message
