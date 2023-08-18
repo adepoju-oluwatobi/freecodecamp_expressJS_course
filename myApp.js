@@ -13,10 +13,10 @@ app.use("/public", express.static(path));
 
 app.get('/json', (req, res) => {
     var response = "Hello json"
-   if (MESSAGE_STYLE === uppercase){
-        response = "HELLO JSON"
+   if (process.env.MESSAGE_STYLE === uppercase) {
+     response = "HELLO JSON";
    } else {
-        response = "Hello json"
+     response = "Hello json";
    }
    res.json({
      message: response
