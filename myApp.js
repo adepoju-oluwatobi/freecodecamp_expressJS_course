@@ -12,6 +12,13 @@ app.get("/", (req, res) => {
 })
 app.use("/public", express.static(path));
 
+// Logger middleware
+app.use((req, res, next) => {
+  const logMessage = `${req.method} ${req.path} - ${req.ip}`;
+  console.log(logMessage);
+  next();
+});
+
 app.get("/json", (req, res) => {
   const messageStyle = process.env.MESSAGE_STYLE;
   let message = "Hello json";
@@ -22,6 +29,7 @@ app.get("/json", (req, res) => {
 
   res.json({ message });
 });
+
 
 
 
